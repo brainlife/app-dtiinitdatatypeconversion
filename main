@@ -2,11 +2,11 @@
 
 dtiinit=`jq -r '.dtiinit' config.json`
 
-export nii=$dtiinit/`jq -r '.files.alignedDwRaw' $dtiinit/dt6.json`
-export bval=$dtiinit/`jq -r '.files.alignedDwBvals' $dtiinit/dt6.json`
-export bvec=$dtiinit/`jq -r '.files.alignedDwBvecs' $dtiinit/dt6.json`
+nii=$(jq -r '.files.alignedDwRaw' $dtiinit/dt6.json)
+bval=$(jq -r '.files.alignedDwBvals' $dtiinit/dt6.json)
+bvec=$(jq -r '.files.alignedDwBvecs' $dtiinit/dt6.json)
 
-cp -v $nii dwi.nii.gz
-cp -v $bval dwi.bvals
-cp -v $bvec dwi.bvecs
+ln -s $dtiinit/$nii dwi.nii.gz
+ln -s $dtiinit/$bval dwi.bvals
+ln -s $dtiinit/$bvec dwi.bvecs
 
