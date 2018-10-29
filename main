@@ -6,7 +6,7 @@ nii=$(jq -r '.files.alignedDwRaw' $dtiinit/dt6.json)
 bval=$(jq -r '.files.alignedDwBvals' $dtiinit/dt6.json)
 bvec=$(jq -r '.files.alignedDwBvecs' $dtiinit/dt6.json)
 
-ln -s $dtiinit/$nii dwi.nii.gz
-ln -s $dtiinit/$bval dwi.bvals
-ln -s $dtiinit/$bvec dwi.bvecs
+ln -sf $dtiinit/$nii dwi.nii.gz
+ln -sf $dtiinit/$bval dwi.bvals
+ln -sf $dtiinit/$bvec dwi.bvecs
 
